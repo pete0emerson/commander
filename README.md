@@ -12,6 +12,7 @@ Install redis from source:
 http://redis.io/download
 
 Fire up:
+
 ```shell
 ./transmitter.py &
 ./multiprocessor.py &
