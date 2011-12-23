@@ -5,16 +5,18 @@ status. It also uses zeromq for all interprocess transportation.
 Diagram about how the data flows:
 http://www.asciiflow.com/#868081871833843538
 
-Install zeromq from source
+Install zeromq from source:
 http://www.zeromq.org/intro:get-the-software
 
-Install redis from source
+Install redis from source:
 http://redis.io/download
 
 Fire up:
-./transmitter.py
-./multiprocessor.py
-./receiver.py
+```shell
+./transmitter.py &
+./multiprocessor.py &
+./receiver.py &
+```
 
 Run the commander:
 
