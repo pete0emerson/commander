@@ -15,7 +15,7 @@ Fire up:
 
 ```shell
 ./transmitter.py &
-./multiprocessor.py &
+./processor.py &
 ./receiver.py &
 ```
 
