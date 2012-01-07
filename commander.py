@@ -47,11 +47,13 @@ def storeJob(r, job_id, data):
 	r.rpush('job_queue', job_id)
 
 def waitForResults(r, job_id, hosts):
+        key = 'job_done:' + str(job_id)
+	if args.verbose is True:
+		print 'Waiting for results in queue ' + key
 	for host in hosts:
-	        key = 'job_done:' + str(job_id) + ':' + host
+		(queue, h) = r.blpop(key)
 		if args.verbose is True:
-			print 'Waiting for result in queue ' + key
-		r.blpop(key)
+			print 'Got results from ' + h
 
 def printResults(r, job_id, hosts):
 	hosts.sort()

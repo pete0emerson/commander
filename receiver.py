@@ -27,5 +27,5 @@ while True:
 	if args.verbose:
 		print 'Storing key ' + key + ' ==> ' + message
 	r.set(key, message)
-	key = 'job_done:' + str(job_id) + ':' + host
-	r.rpush(key, None)
+	key = 'job_done:' + str(job_id)
+	r.rpush(key, host)
