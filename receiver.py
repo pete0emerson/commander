@@ -4,12 +4,18 @@ import redis
 import zmq
 import json
 import argparse
+import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--verbose', dest='verbose', action='store_true', help='Turn on verbose mode')
 args = parser.parse_args()
 
-r = redis.Redis("localhost")
+try:
+	r = redis.Redis("localhost")
+	r.get('connected')
+except:
+	print "Not connected to the redis server."
+	sys.exit(1)
 
 context = zmq.Context()
 socket = context.socket(zmq.PULL)
@@ -27,5 +33,7 @@ while True:
 	if args.verbose:
 		print 'Storing key ' + key + ' ==> ' + message
 	r.set(key, message)
+	if args.verbose:
+		print 'Appending "' + host + '" to "job_done:' + str(job_id) + '"'
 	key = 'job_done:' + str(job_id)
 	r.rpush(key, host)
