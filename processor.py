@@ -33,8 +33,8 @@ def processCommand(data):
 	stdout_value, stderr_value = proc.communicate('')
 	data['exit_code'] = proc.returncode
 	data['results'] = str(stdout_value)
-#	if 'code' in data:
-#		os.remove(file)
+	if 'code' in data:
+		os.remove(file)
 	text = json.dumps(data)
 	if args.verbose:
 		print 'Sending to ' + data['receiver'] + ': ' + text
