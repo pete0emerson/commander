@@ -5,18 +5,12 @@ import json
 import zmq
 import pprint
 import argparse
-import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--verbose', dest='verbose', action='store_true', help='Turn on verbose mode')
 args = parser.parse_args()
 
-try:
-	r = redis.Redis("localhost")
-	r.get('connected')
-except:
-	print "No connection to the redis server."
-	sys.exit(1)
+r = redis.Redis("localhost")
 
 while True:
 	if args.verbose:
