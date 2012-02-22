@@ -2,6 +2,9 @@ This set of scripts uses Redis as its storage engine and in particular
 uses Redis's blocking pop off of lists to avoid polling the database for command
 status. It also uses zeromq for all interprocess transportation.
 
+AppNexus Tech Talk video:
+http://www.youtube.com/watch?v=Z-4EqEZbfBM
+
 Diagram about how the data flows:
 http://www.asciiflow.com/#868081871833843538
 
