@@ -1,3 +1,5 @@
+**A [CoreOS][coreos] / [Docker][docker] version of commander is now available at [pete0emerson/docker-commander](https://github.com/pete0emerson/docker-commander)**
+
 This set of scripts uses Redis as its storage engine and in particular
 uses Redis's blocking pop off of lists to avoid polling the database for command
 status. It also uses zeromq for all interprocess transportation.
@@ -50,3 +52,6 @@ You can even inject and run code:
 $ ./commander.py --host=localhost --receiver=tcp://localhost:9999 --code=./inject.py
 localhost => Darwin
 ```
+
+[coreos]: http://coreos.com/
+[docker]: http://www.docker.io/
